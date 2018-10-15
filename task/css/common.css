@@ -43,6 +43,8 @@ html {
 
 body {
 	font-family: 'Amaranth', sans-serif;
+	background-color: #000;
+	color: #fff;
 }
 
 .str-inner {
@@ -58,13 +60,20 @@ body {
   h1
 --------------------------------*/
 .bg-h1 {
+	margin: 3px 0 0;
 	position: relative;
-	height: 200px;
+	height: 250px;
 	/*背景グラデ*/
-	background: linear-gradient(225deg, #e74c3c, #f1c40f, #1abc9c, #3498db, #9b59b6);
+	/*background: linear-gradient(225deg, #e74c3c, #f1c40f, #1abc9c, #3498db, #9b59b6);*/
+	background: linear-gradient(225deg, #b9ba3e, #d7cf90, #6b6e2f, #061110);
 	background-size: 1000% 1000%;
 	-webkit-animation: bg-h1 11s ease infinite;
 	animation: bg-h1 11s ease infinite;
+}
+@media screen and (max-width: 798px) {
+	.bg-h1 {
+		margin: 0;
+	}
 }
 /*背景グラデ*/
 @-webkit-keyframes bg-h1 {
@@ -120,22 +129,22 @@ body {
 		            0 0 0 0 transparent;
 	}
 	15% {
-		box-shadow: 0 0 0 0 rgba(124, 255, 127, .3),
-		            0 0 0 0 rgba(255, 255, 255, .1),
-		            0 0 0 0 rgba(124, 255, 127, .3),
+		box-shadow: 0 0 0 0 rgba(146, 0, 0, .3),
+		            0 0 0 0 rgba(216, 0, 0, .1),
+		            0 0 0 0 rgba(146, 0, 0, .3),
 		            0 0 0 0 rgba(0, 0, 0, 0.08);
 	}
 	80% {
-		box-shadow: 0 0 20px 50px rgba(124, 255, 127, .3),
+		box-shadow: 0 0 20px 50px rgba(146, 0, 0, .3),
 		            0 0 10px 60px transparent,
-		            0 0 15px 65px rgba(124, 255, 127, .3),
+		            0 0 15px 65px rgba(146, 0, 0, .3),
 		            0 0 5px 70px transparent;
 	}
 	100% {
-		box-shadow: 0 0 20px 55px rgba(124, 255, 127, 0),
-		            0 0 10px 65px rgba(255, 255, 255, 0),
-		            0 0 15px 70px rgba(124, 255, 127, 0),
-		            0 0 5px 75px rgba(255, 255, 255, 0);
+		box-shadow: 0 0 20px 55px rgba(146, 0, 0, 0),
+		            0 0 10px 65px rgba(216, 0, 0, 0),
+		            0 0 15px 70px rgba(146, 0, 0, 0),
+		            0 0 5px 75px rgba(216, 0, 0, 0);
 	}
 }
 @keyframes nami {
@@ -146,22 +155,22 @@ body {
 		            0 0 0 0 transparent;
 	}
 	15% {
-		box-shadow: 0 0 0 0 rgba(124, 255, 127, .3),
-		            0 0 0 0 rgba(255, 255, 255, .1),
-		            0 0 0 0 rgba(124, 255, 127, .3),
+		box-shadow: 0 0 0 0 rgba(146, 0, 0, .3),
+		            0 0 0 0 rgba(216, 0, 0, .1),
+		            0 0 0 0 rgba(146, 0, 0, .3),
 		            0 0 0 0 rgba(0, 0, 0, 0.08);
 	}
 	80% {
-		box-shadow: 0 0 20px 50px rgba(124, 255, 127, .3),
+		box-shadow: 0 0 20px 50px rgba(146, 0, 0, .3),
 		            0 0 10px 60px transparent,
-		            0 0 15px 65px rgba(124, 255, 127, .3),
+		            0 0 15px 65px rgba(146, 0, 0, .3),
 		            0 0 5px 70px transparent;
 	}
 	100% {
-		box-shadow: 0 0 20px 55px rgba(124, 255, 127, 0),
-		            0 0 10px 65px rgba(255, 255, 255, 0),
-		            0 0 15px 70px rgba(124, 255, 127, 0),
-		            0 0 5px 75px rgba(255, 255, 255, 0);
+		box-shadow: 0 0 20px 55px rgba(146, 0, 0, 0),
+		            0 0 10px 65px rgba(216, 0, 0, 0),
+		            0 0 15px 70px rgba(146, 0, 0, 0),
+		            0 0 5px 75px rgba(216, 0, 0, 0);
 	}
 }
 /*ゾンビ*/
@@ -186,7 +195,7 @@ body {
 	background-size: 60px;
 }
 .zombie7 {
-	background-size: 80px;
+	background-size: 70px;
 }
 .zombie1 {
 	left: 10%;
@@ -270,11 +279,11 @@ body {
 		opacity: 0;
 	}
 	50% {
-		transform: translateY(50px);
+		transform: translateY(100px);
 		opacity: 1;
 	}
 	100% {
-		transform: translateY(100px);
+		transform: translateY(180px);
 		opacity: .3;
 	}
 }
@@ -287,7 +296,7 @@ body {
 	top: 50%;
 	left: 50%;
 	z-index: 2;
-	transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%)
 }
 
 /*-------------------------------
@@ -377,6 +386,65 @@ body {
   }
 }
 
+/*ユニークキャプション*/
+.caption_unique {
+	margin: 5px 0 0;
+	display: flex;
+	width: 100%;
+}
+.caption_unique .name_jp {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.caption_unique .name_en {
+	font-size: 12px;
+	padding-left: 8px;
+	position: relative;
+}
+.caption_unique .name_en::before {
+	position: absolute;
+	content: "/";
+	top: 0;
+	left: 0;
+}
+
+.caption_unique .name_group,
+.caption_unique .name_real {
+	width: 50%;
+	margin: 0;
+}
+.caption_unique .name_real {
+	font-size: 16px;
+	font-weight: bold;
+	display: flex;
+	justify-content: flex-end;
+}
+
+/*-------------------------------
+  ボタン
+--------------------------------*/
+.btn-a {
+	display: inline-block;
+}
+.btn-a > .btn-inner {
+	display: block;
+	text-align: center;
+	padding: 8px 10px;
+	color: #fff;
+	background-color: #941111;
+	font-size: 16px;
+	text-decoration: none;
+	border: 4px solid #941111;
+	transition: .1s ease;
+}
+.btn-a > .btn-inner:hover,
+.btn-a > .btn-inner:focus {
+	outline: 3px solid #fff;
+    outline-offset: -5px;
+}
+
+
 /*-------------------------------
   メガメニュー／ハンバーガーメニュー
 --------------------------------*/
@@ -384,12 +452,11 @@ body {
 .list-nav {
 	width: 100%;
 	display: flex;
-	margin: 3px 0 0;
 }
 .list-nav > li {
 	width: calc((100% - 3px)* 2 / 3);
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	margin-right: 3px;
 	position: relative;
 }
@@ -400,6 +467,7 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding: 20px 10px;
 	text-decoration: none;
 	color: #fff;
@@ -590,7 +658,6 @@ body {
 .list-accordion .accordion-wrap .contents {
 	display: none;
 	border: 2px solid #941111;
-	color: #000;
 	padding: 20px;
 }
 .list-accordion .accordion-wrap.is-open .contents {
@@ -600,27 +667,6 @@ body {
 /*-------------------------------
   モーダルウィンドウ
 --------------------------------*/
-.btn-modal {
-	display: inline-block;
-}
-.btn-inner {
-	display: block;
-	text-align: center;
-	padding: 8px 10px;
-	color: #fff;
-	background-color: #941111;
-	font-size: 16px;
-	text-decoration: none;
-	border: 4px solid #941111;
-	transition: .1s ease;
-}
-.btn-inner:hover,
-.btn-inner:focus {
-	outline: 3px solid #fff;
-    outline-offset: -5px;
-}
-
-/*中身*/
 .area-modal-contents-wrap {
 	display: none;
 }
@@ -827,6 +873,22 @@ body {
 .page-top a:hover::before,
 .page-top a:hover::after {
 	margin-top: -6px;
+}
+
+/*-------------------------------
+  Ajax JSON
+--------------------------------*/
+.json-result,
+.json-test {
+	margin: 20px 0 0;
+}
+.txt-division {
+	font-size: 20px;
+	font-weight: bold;
+}
+.txt-person {
+	margin: 5px 0 0;
+	font-size: 16px;
 }
 
 /*-------------------------------

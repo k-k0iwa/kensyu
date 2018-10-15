@@ -42,20 +42,44 @@ $(function() {
 	var autoCount = 0;
 	var $itemTarget;
 	var loopEnd = autoItemLength;
-	//var point; 
-	var loop = setInterval(function () {
-		autoCount ++;
-		$itemTarget = $autoItem.eq(autoCount - 1); //0からにしたいので-1
+	var $play = $('.js-slider-play');
+	var loop;
 
-		if (autoCount === loopEnd) {
-			$itemTarget.removeClass('is-active');
-			$autoItem.eq(0).addClass('is-active'); //最後までいったら最初に戻る
-			clearInterval(loop);
+	function changePage() {
+		$itemTarget.removeClass('is-active');
+		$itemTarget.next().addClass('is-active'); //次の要素にクラスを付ける
+	}
+
+	function startLoop() {
+		loop = setInterval(function () {
+			$itemTarget = $autoItem.eq(autoCount - 1); //0からにしたいので-1
+
+			if (autoCount === loopEnd) {
+				autoCount = 0;
+				$autoItem.eq(0).addClass('is-active'); //最後までいったら最初に戻る
+				changePage();
+			} else {
+				autoCount ++;
+				changePage();
+			}
+		}, 1500);
+	}
+
+	function stopTimer() {
+		clearInterval(loop);
+	}
+
+	startLoop();
+
+	$play.click(function() {
+		if($(this).hasClass('is-active')) {
+			stopTimer();
+			$(this).removeClass('is-active');
 		} else {
-			$itemTarget.removeClass('is-active');
-			$itemTarget.next().addClass('is-active'); //次の要素にクラスを付ける
+			startLoop();
+			$(this).addClass('is-active');
 		}
-	}, 1500);
+	});
 
 	//スライダー・ライトボタン
 	var $liteItemGroup = $('#js-slider-btn');
@@ -143,6 +167,41 @@ $(function() {
 
 		return false;
 	});
+
+	//Ajax JSON
+	var $result = $('#json-result');
+	var $target = $('#json-test');
+	var jsonLen;
+	var personLen;
+
+	$.ajax({
+		type: 'GET',
+		url: 'js/test.json',
+		dataType: 'json'
+	})
+	.then(
+		function(json) {
+			$result.text('以下は成功したら表示されるテキストです。').css('font-size', '26px');
+
+			jsonLen = json.length;
+
+			for(var i = 0; i < jsonLen; i++) {
+				$target.append('<p class="txt-division">' + json[i].division + '</p>');
+
+				personLen = json[i].person.length;
+
+				for(var k = 0; k < personLen; k++) {
+					$target.append('<p class="txt-person">' + json[i].person[k].name + ':' + json[i].person[k].age + '歳' + '</p>');
+				}
+			}
+		},
+		function() {
+			$result.text('Ajax失敗！！！').css({
+				'color' : 'red',
+				'font-size' : '26px'
+			});
+		}
+	);
 });
 
 //メガメニュー / ハンバーガーメニュー
@@ -153,7 +212,7 @@ var $pcTarget = $('.list-nav').find('li');
 $(window).on('load resize', function () {
 	pcWidth = window.matchMedia('(min-width:767px)').matches;
 
-	if(pcWidth) {
+	if(pcWidth || $(this).find('div').hasClass('nav-inner-menu')) {
 		$pcTarget.hover(
 			function() {
 				$(this).find('.nav-inner-menu').addClass('is-active');
