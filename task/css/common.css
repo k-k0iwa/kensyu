@@ -71,6 +71,7 @@ body {
 	background-size: 1000% 1000%;
 	-webkit-animation: bg-h1 11s ease infinite;
 	animation: bg-h1 11s ease infinite;
+	overflow: hidden;
 }
 .bg-h1::before {
 	width: 350px;
@@ -240,8 +241,8 @@ body {
 	left: 70%;
 }
 .zombie6 {
-	top: 12%;
-	left: 90%;
+	top: 48%;
+	left: 85%;
 }
 .zombie7 {
 	top: 0;
