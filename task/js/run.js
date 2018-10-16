@@ -43,6 +43,7 @@ $(function() {
 	var $itemTarget;
 	var loopEnd = autoItemLength;
 	var $play = $('.js-slider-play');
+	var $playBtn;
 	var loop;
 
 	function changePage() {
@@ -52,6 +53,7 @@ $(function() {
 
 	function startLoop() {
 		loop = setInterval(function () {
+			autoCount ++;
 			$itemTarget = $autoItem.eq(autoCount - 1); //0からにしたいので-1
 
 			if (autoCount === loopEnd) {
@@ -59,25 +61,28 @@ $(function() {
 				$autoItem.eq(0).addClass('is-active'); //最後までいったら最初に戻る
 				changePage();
 			} else {
-				autoCount ++;
 				changePage();
 			}
 		}, 1500);
 	}
 
-	function stopTimer() {
+	function stopLoop() {
 		clearInterval(loop);
 	}
 
 	startLoop();
 
 	$play.click(function() {
+		$playBtn = $(this).find('.btn-inner');
+
 		if($(this).hasClass('is-active')) {
-			stopTimer();
-			$(this).removeClass('is-active');
-		} else {
 			startLoop();
+			$(this).removeClass('is-active');
+			$playBtn.text('停止する');
+		} else {
+			stopLoop();
 			$(this).addClass('is-active');
+			$playBtn.text('再生する');
 		}
 	});
 
@@ -153,13 +158,13 @@ $(function() {
 
 	//スムーススクロール
 	var href;
-	var $target;
+	var $scrollTarget;
 	var position;
 
 	$('[href^="#"].scroll').click(function (){
 		href = $(this).attr('href');
-		$target = $(href === '#top' ? 'html' : href);
-		position = $target.offset().top;
+		$scrollTarget = $(href === '#top' ? 'html' : href);
+		position = $scrollTarget.offset().top;
 
 		$('html, body').animate({
 			'scrollTop':position
@@ -170,7 +175,7 @@ $(function() {
 
 	//Ajax JSON
 	var $result = $('#json-result');
-	var $target = $('#json-test');
+	var $testTarget = $('#json-test');
 	var jsonLen;
 	var personLen;
 
@@ -181,22 +186,22 @@ $(function() {
 	})
 	.then(
 		function(json) {
-			$result.text('以下は成功したら表示されるテキストです。').css('font-size', '26px');
+			$result.text('データ取得成功！！！').css('font-size', '26px');
 
 			jsonLen = json.length;
 
 			for(var i = 0; i < jsonLen; i++) {
-				$target.append('<p class="txt-division">' + json[i].division + '</p>');
+				$testTarget.append('<p class="txt-division">' + json[i].division + '</p>');
 
 				personLen = json[i].person.length;
 
 				for(var k = 0; k < personLen; k++) {
-					$target.append('<p class="txt-person">' + json[i].person[k].name + ':' + json[i].person[k].age + '歳' + '</p>');
+					$testTarget.append('<p class="txt-person">' + json[i].person[k].name + ':' + json[i].person[k].age + '歳' + '</p>');
 				}
 			}
 		},
 		function() {
-			$result.text('Ajax失敗！！！').css({
+			$result.text('データ取得失敗！！！ローカルで閲覧している場合、Firefoxでご確認ください。').css({
 				'color' : 'red',
 				'font-size' : '26px'
 			});

@@ -21,6 +21,9 @@ h5, h6 {
 p {
 	margin: 20px 0 0;
 }
+p + p {
+	margin: 10px 0 0;
+}
 ul {
 	list-style: none;
 }
@@ -64,11 +67,18 @@ body {
 	position: relative;
 	height: 250px;
 	/*背景グラデ*/
-	/*background: linear-gradient(225deg, #e74c3c, #f1c40f, #1abc9c, #3498db, #9b59b6);*/
 	background: linear-gradient(225deg, #b9ba3e, #d7cf90, #6b6e2f, #061110);
 	background-size: 1000% 1000%;
 	-webkit-animation: bg-h1 11s ease infinite;
 	animation: bg-h1 11s ease infinite;
+}
+.bg-h1::before {
+	width: 350px;
+    height: 250px;
+    position: absolute;
+	content: "";
+	background: url(../images/bg_bloodstain.png) no-repeat 0 0;
+	background-size: 50% auto;
 }
 @media screen and (max-width: 798px) {
 	.bg-h1 {
@@ -87,18 +97,18 @@ body {
     100%{background-position: 0 50%}
 }
 /*波紋*/
-.animate-nami,
-.animate-nami::before,
-.animate-nami::after {
+/*.animate-nami1,
+.animate-nami2,
+.animate-nami3 {
 	position: absolute;
 	display: block; 
-	border-radius: 2px;
-	width: 2px;
-	height: 2px;
+	border-radius: 50%;
+	width: 1px;
+	height: 1px;
 	-webkit-animation: nami 6s infinite ease-out;
 	animation: nami 6s infinite ease-out;
 }
-.animate-nami {
+.animate-nami1 {
 	z-index: 0;
 	top: 0;
 	left: 0;
@@ -107,19 +117,15 @@ body {
 	margin: auto;
 	transition: all .3s;
 }
-.animate-nami::before,
-.animate-nami::after {
-	content: "";
-}
-.animate-nami::before {
+.animate-nami2 {
 	animation-delay: .1s;
-	top: 15px;
-	left: 40px;
+	top: 20%;
+	left: 30%;
 }
-.animate-nami::after {
+.animate-nami3 {
 	animation-delay: .3s;
-	top: -30px;
-	left: 20px;
+	top: 30%;
+	left: 80%;
 }
 @-webkit-keyframes nami {
 	0% {
@@ -172,121 +178,199 @@ body {
 		            0 0 15px 70px rgba(146, 0, 0, 0),
 		            0 0 5px 75px rgba(216, 0, 0, 0);
 	}
+}*/
+/*手*/
+.zombie1, .zombie2, .zombie3, .zombie4, .zombie5, .zombie6, .zombie7, .zombie8,
+.zombie9, .zombie10, .zombie11, .zombie12, .zombie13, .zombie14, .zombie15,
+ .zombie16, .zombie17, .zombie18 {
+	opacity: 0;
+	-webkit-animation: zombie .1s 1 linear forwards;
+	animation: zombie .1s 1 linear forwards;
+	position: absolute;
+	display: block;
+	width: 180px;
+	height: 180px;
+	background-repeat: no-repeat;
 }
-/*ゾンビ*/
-.zombie1, .zombie2, .zombie3, .zombie4, .zombie5, .zombie6, .zombie7, .zombie8 {
+.zombie1, .zombie4, .zombie9, .zombie10, .zombie16 {
+	background-size: 40px;
+	background-image: url(../images/hand1.svg);
+	-webkit-animation-delay: .2s;
+	animation-delay: .2s;
+}
+.zombie1, .zombie4, .zombie9, .zombie10, .zombie16 {
+	background-size: 75px;
+}
+.zombie2, .zombie5, .zombie11, .zombie12, .zombie15, .zombie17 {
+	background-size: 45px;
+	background-image: url(../images/hand2.svg);
+	-webkit-animation-delay: .6s;
+	animation-delay: .6s;
+}
+.zombie2, .zombie5, .zombie11, .zombie12, .zombie15 {
+	background-size: 80px;
+}
+.zombie3, .zombie6, .zombie8, .zombie13, .zombie14, .zombie18 {
+	background-size: 60px;
+	background-image: url(../images/hand3.svg);
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+.zombie3, .zombie6, .zombie8, .zombie13, .zombie14 {
+	background-size: 120px;
+}
+.zombie1 {
+	top: 60%;
+	left: 10%;
+}
+.zombie2 {
+	top: 20%;
+	left: 25%;
+}
+.zombie3 {
+	top: 4%;
+	left: 40%;
+}
+.zombie4 {
+	top: 48%;
+	left: 55%;
+}
+.zombie5 {
+	top: 45%;
+	left: 70%;
+}
+.zombie6 {
+	top: 12%;
+	left: 90%;
+}
+.zombie7 {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+	background-size: 180px;
+	background-image: url(../images/hand1.svg);
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+}
+.zombie8 {
+	top: 15%;
+	left: 77%;
+}
+.zombie9 {
+	top: 49%;
+	left: 40%;
+}
+.zombie10 {
+	top: 60%;
+	left: 10%;
+}
+.zombie11 {
+	top: 33%;
+	left: 30%;
+}
+.zombie12 {
+	top: 45%;
+	left: 55%;
+}
+.zombie13 {
+	top: 36%;
+	left: 14%;
+}
+.zombie14 {
+	top: 47%;
+	left: 63%;
+}
+.zombie15 {
+	top: 28%;
+	left: 84%;
+}
+.zombie16 {
+	top: 60%;
+	left: 38%;
+}
+.zombie17 {
+	top: 28%;
+	left: 8%;
+}
+.zombie18 {
+	top: 60%;
+	left: 18%;
+}
+@-webkit-keyframes zombie {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes zombie {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/*下からの手*/
+/*.hand1, .hand2, .hand3, .hand4 {
 	opacity: 0;
 	transform-origin: 0 0;
-	-webkit-animation: zombie 6s infinite linear forwards;
-	animation: zombie 6s infinite linear forwards;
+	-webkit-animation: hand 6s infinite linear forwards;
+	animation: hand 6s infinite linear forwards;
+	-webkit-animation-duration: 2.5s;
+	animation-duration: 2.5s;
 	position: absolute;
 	display: block;
 	width: 80px;
 	height: 80px;
 	background-repeat: no-repeat;
-}
-.zombie1, .zombie4 {
-	background-size: 30px;
-}
-.zombie2, .zombie5 {
-	background-size: 45px;
-}
-.zombie3, .zombie6, .zombie8 {
-	background-size: 60px;
-}
-.zombie7 {
 	background-size: 70px;
+	background-image: url(../images/icn_zombie_hand.svg);
 }
-.zombie1 {
-	left: 10%;
-	-webkit-animation-duration: 2.5s;
-	animation-duration: 2.5s;
-	background-image: url(../images/icn_zombie_01.svg);
+.hand1 {
+	left: 15%;
 }
-.zombie2 {
-	left: 25%;
-	-webkit-animation-duration: 2.7s;
-	animation-duration: 2.7s;
-	-webkit-animation-delay: .2s;
-	animation-delay: .2s;
-	background-image: url(../images/icn_zombie_02.svg);
-}
-.zombie3 {
-	left: 40%;
-	-webkit-animation-duration: 2.9s;
-	animation-duration: 2.9s;
-	-webkit-animation-delay: .4s;
-	animation-delay: .4s;
-	background-image: url(../images/icn_zombie_03.svg);
-}
-.zombie4 {
-	left: 55%;
-	-webkit-animation-duration: 3.1s;
-	animation-duration: 3.1s;
-	-webkit-animation-delay: .6s;
-	animation-delay: .6s;
-	background-image: url(../images/icn_zombie_04.svg);
-}
-.zombie5 {
-	left: 70%;
-	-webkit-animation-duration: 3.3s;
-	animation-duration: 3.3s;
-	-webkit-animation-delay: .8s;
-	animation-delay: .8s;
-	background-image: url(../images/icn_zombie_05.svg);
-}
-.zombie6 {
-	left: 90%;
-	-webkit-animation-duration: 3.5s;
-	animation-duration: 3.5s;
+.hand2 {
+	left: 50%;
 	-webkit-animation-delay: 1s;
 	animation-delay: 1s;
-	background-image: url(../images/icn_zombie_06.svg);
 }
-.zombie7 {
-	left: 60%;
-	-webkit-animation-duration: 3.7s;
-	animation-duration: 3.7s;
-	-webkit-animation-delay: .8s;
-	animation-delay: 1.2s;
-	background-image: url(../images/icn_zombie_07.svg);
+.hand3 {
+	left: 75%;
+	-webkit-animation-delay: .5s;
+	animation-delay: .5s;
 }
-.zombie8 {
-	left: 30%;
-	-webkit-animation-duration: 3.9s;
-	animation-duration: 3.9s;
-	-webkit-animation-delay: .3s;
-	animation-delay: 1.4s;
-	background-image: url(../images/icn_zombie_08.svg);
+.hand4 {
+	left: 90%;
+	-webkit-animation-delay: 1.5s;
+	animation-delay: 1.5s;
 }
-@-webkit-keyframes zombie {
+@-webkit-keyframes hand {
 	0% {
-		transform: translateY(0);
+		transform: translateY(185px);
 		opacity: 0;
 	}
-	50% {
-		transform: translateY(50px);
+	100% {
+		transform: translateY(150px);
 		opacity: 1;
 	}
-	100% {
-		transform: translateY(100px);
-		opacity: .3;
-	}
 }
-@keyframes zombie {
+@keyframes hand {
 	0% {
-		transform: translateY(0);
+		transform: translateY(185px);
 		opacity: 0;
 	}
-	50% {
-		transform: translateY(100px);
+	100% {
+		transform: translateY(150px);
 		opacity: 1;
 	}
-	100% {
-		transform: translateY(180px);
-		opacity: .3;
-	}
-}
+}*/
 
 .hdg-lv1-a {
 	font-size: 40px;
@@ -326,7 +410,7 @@ body {
 --------------------------------*/
 .hdg-lv3-a {
 	padding: 8px 10px;
-	border-left: 3px solid #211f30;
+	border-left: 10px solid #211f30;
 	line-height: 1.2;
 }
 
@@ -430,20 +514,56 @@ body {
 .btn-a > .btn-inner {
 	display: block;
 	text-align: center;
-	padding: 8px 10px;
+	padding: 8px 10px 6px;
 	color: #fff;
-	background-color: #941111;
+	background-color: #a50000;
 	font-size: 16px;
 	text-decoration: none;
-	border: 4px solid #941111;
+	border: 4px solid #a50000;
 	transition: .1s ease;
 }
-.btn-a > .btn-inner:hover,
-.btn-a > .btn-inner:focus {
+.btn-a > .btn-inner:hover {
 	outline: 3px solid #fff;
     outline-offset: -5px;
 }
 
+/*再生/停止ボタン*/
+.btn-a._play {
+	margin:5px 0 0;
+}
+.btn-a._play > .btn-inner {
+	padding-left: 28px;
+	position: relative;
+}
+/*停止*/
+.btn-a._play > .btn-inner::before,
+.btn-a._play > .btn-inner::after {
+	position: absolute;
+	content: "";
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3px;
+	height: 14px;
+	background-color: #fff;
+}
+.btn-a._play > .btn-inner::before {
+	left: 5px;
+}
+.btn-a._play > .btn-inner::after {
+	left: 14px;
+}
+/*再生*/
+.btn-a._play.is-active > .btn-inner::before,
+.btn-a._play.is-active > .btn-inner::after {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+}
+.btn-a._play.is-active > .btn-inner::before {
+	border-style: solid;
+	border-width: 7px 0 7px 12px;
+	border-color: transparent transparent transparent #fff;
+}
 
 /*-------------------------------
   メガメニュー／ハンバーガーメニュー
@@ -489,7 +609,7 @@ body {
 	left: 0;
 	z-index: 100;
 	width: 100%;
-	border-top: 3px solid #fff;
+	border-top: 3px solid #000;
 	background-color: #32384d;
 }
 .list-nav-inner > li > a {
@@ -629,7 +749,7 @@ body {
 }
 .list-accordion .accordion-wrap .title {
 	padding: 10px 10px 8px;
-	background-color: #941111;
+	background-color: #a50000;
 	color: #fff;
 	font-size: 18px;
 	font-weight: bold;
@@ -657,7 +777,7 @@ body {
 }
 .list-accordion .accordion-wrap .contents {
 	display: none;
-	border: 2px solid #941111;
+	border: 2px solid #a50000;
 	padding: 20px;
 }
 .list-accordion .accordion-wrap.is-open .contents {
@@ -691,6 +811,7 @@ body {
 	width: 80%;
 	height: auto;
 	text-align: center;
+	color: #000;
 }
 .area-modal-contents-wrap.is-active .area-modal-contents-inner .btn-close {
 	position: absolute;
@@ -700,7 +821,7 @@ body {
 	height: 30px;
 	border-radius: 5px;
 	color: #fff;
-	background-color: #941111;
+	background-color: #a50000;
 }
 .area-modal-contents-wrap.is-active .area-modal-contents-inner .btn-close::before {
 	position: absolute;
@@ -723,6 +844,9 @@ body {
 /*-------------------------------
   スライドショー
 --------------------------------*/
+.area-slider {
+	text-align: center;
+}
 .list-slider {
 	margin: 20px 0 0;
 	text-align: center;
@@ -756,7 +880,7 @@ body {
 	font-size: 0;
 }
 .slider-dots > li.dots-active > button {
-	background-color: #941111;
+	background-color: #a50000;
 }
 
 /*サムネイル*/
@@ -768,19 +892,27 @@ body {
 .list-thum > li {
 	margin-right: 10px;
 	cursor: pointer;
+	background-color: #000;
+	transition: .3s ease;
+}
+.list-thum > li.thum-active {
+	background-color: transparent;
 }
 .list-thum > li:last-child {
 	margin-right: 0;
 }
 .list-thum > li:hover,
 .list-thum > li:focus {
-	opacity: .7;
+	background-color: rgba(255, 0, 0, .6);
 }
 .list-thum > li > img {
 	outline: 3px solid #fff;
 	outline-offset: -4px;
+	opacity: .4;
 }
-
+.list-thum > li.thum-active > img {
+	opacity: 1;
+}
 /*-------------------------------
   タブ
 --------------------------------*/
@@ -789,26 +921,30 @@ body {
 	display: flex;
 }
 .tab-group > li {
+	display: flex;
+	align-items: stretch;
 	width: calc((100% - 8px) * 3 / 4);
 	margin-right: 8px;
+	font-size: 16px;
 }
 .tab-group > li:last-child {
 	margin-right: 0;
 }
 .tab-group > li > a {
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #fff;
 	border: 2px solid #16253d;
 	background-color: #16253d;
-	padding: 20px 10px;
+	padding: 16px 10px 14px;
 	text-decoration: none;
 	transition: opacity .5s ease;
 }
 .tab-group > li > a.is-current {
-	border-color: #002c54;
-	background-color: #002c54;
+	border-color: #a50000;
+	background-color: #a50000;
 	cursor: default;
 }
 .tab-group > li > a:hover {
@@ -820,7 +956,7 @@ body {
 
 .tab-item {
 	display: none;
-	border: 2px solid #002c54;
+	border: 2px solid #a50000;
 	padding: 20px;
 }
 .tab-item > *:first-child {
@@ -844,7 +980,7 @@ body {
 	height: 40px;
 	font-size: 0;
 	display: block;
-	background-color: #941111;
+	background-color: #a50000;
 	position: relative;
 	transition: .3s ease;
 }
