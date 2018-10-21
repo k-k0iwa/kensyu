@@ -799,6 +799,8 @@ body {
 	bottom: 0;
 	z-index: 100;
 	background-color: rgba(0, 0, 0, .7);
+	overflow-y: auto;
+	height: 100%;
 }
 .area-modal-contents-inner {
 	position: absolute;
