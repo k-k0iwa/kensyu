@@ -207,6 +207,18 @@ $(function() {
 			});
 		}
 	);
+
+	//アクセス日を表示させる
+	var timeNow = new Date();
+	var $weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+
+	var year = timeNow.getFullYear(); //年をとりだす
+	var month = timeNow.getMonth() + 1; //月をとりだす
+	var date = timeNow.getDate(); //日をとりだす
+	var weekday = $weekdays[timeNow.getDay()]; //曜日をとりだす
+	var $outputTarget = $('.today').find('time');
+
+	$outputTarget.text(year + '年' + month + '月' + date + '日' + '（' + weekday + '）');
 });
 
 //メガメニュー / ハンバーガーメニュー
